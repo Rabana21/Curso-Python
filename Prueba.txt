@@ -1,0 +1,4 @@
+Hola mi nombre es Rubén y este es mi primer programa de Python
+Python es un lenguaje de programación muy sencillo de aprender 
+Pruebalo y te gustará
+From rubenBullones@gmail.com :)
