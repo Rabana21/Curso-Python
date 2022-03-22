@@ -30,7 +30,7 @@ lista = sorted(lista, reverse = True)
 lista = sorted( [ (v,p) for p,v in diccionario.items() ], reverse = True )
 
 print('El top 10 de palabras repetidas en le texto es: ') 
-for v,p in lista[:15]:
+for v,p in lista[:10]:
     print(p, str(v))
     
 #print('La palabra más repetida ha sido: \'' + palabra_mas_repetida + '\' la cual se ha repetido ' + str(numero_veces) + ' veces')
