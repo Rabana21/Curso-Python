@@ -64,12 +64,7 @@ def total_spent(categories):
   tspent = 0
   for category in categories:
     tspent += category.spent()
-    
-
   return tspent
-
-def truncate_ten(number):
-  return round(number / 10) * 10
 
 def max_len(categories):
   max_num = -1
@@ -77,6 +72,7 @@ def max_len(categories):
     if len(category.name) > max_num:
       max_num = len(category.name)
   return max_num
+  
 def create_spend_chart(categories):
   title = 'Percentage spent by category\n'
   line = ''
@@ -84,14 +80,14 @@ def create_spend_chart(categories):
   tspent = total_spent(categories)
   dic = dict()
   num_categories = len(categories) * 3
-  sub_line = '    ' + ''.rjust(num_categories, '-') + '\n'
+  #Le añado el +1 por que en el dibujo añade 2 lineas  pasado el o, por lo tanto con el num categories tengo uno y me queda el otro que hay que sumar
+  sub_line = '    ' + ''.rjust(num_categories + 1 , '-') 
   
   for category in categories:
     spent = category.spent()
-    prcnt = spent / tspent * 100
-    dic[category.name] =  truncate_ten(round(prcnt)) 
+    dic[category.name] =  spent / tspent * 100
 
-  for index in range(100, 0, -10):
+  for index in range(100, -1, -10): #Pongo 11 para que llegue al 0
     line += str(index).rjust(3) + '|'  
     for category in categories:
       prct = dic[category.name]
@@ -109,9 +105,10 @@ def create_spend_chart(categories):
         sub_line += name[index].center(3)
       else:
         sub_line += ' '.center(3)
+    #Añado el espacio ese por la última columna, que piden que tiene que tener un espacio en blanco
+    sub_line += ' '
   
   return title + line + sub_line.rjust(4+num_categories)
 
-  
     
   

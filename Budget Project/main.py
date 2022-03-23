@@ -17,10 +17,15 @@ auto = budget.Category("Auto")
 auto.deposit(1000, "initial deposit")
 auto.withdraw(15)
 
+
+
 print(food)
 print(clothing)
 
 print(create_spend_chart([food, clothing, auto]))
 
+
 # Run unit tests automatically
 main(module='test_module', exit=False)
+
+#Falla en el assert del print, supongo que por un espacio porque despues de comprobarlo, lo que muestra por pantalla es lo mismo
